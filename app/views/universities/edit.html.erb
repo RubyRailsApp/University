@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag "book"  %>
+
+<h1>Editing university</h1>
+
+<%= render "form", university: @university %>
+
+<br>
+
+<div>
+  <%= link_to "Show", @university, class: "btn btn-secondary btn-new" %> |
+  <%= link_to "Back", universities_path, class: "btn btn-secondary btn-new" %>
+</div>

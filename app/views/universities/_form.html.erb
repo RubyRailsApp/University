@@ -1,0 +1,47 @@
+<%= form_with(model: university) do |form| %>
+  <% if university.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(university.errors.count, "error") %> prohibited this university from being saved:</h2>
+
+      <ul>
+        <% university.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name , style: "display: block", class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :chuyennganh, style: "display: block", class: "form-label" %>
+    <%= form.text_field :chuyennganh, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :vitri, style: "display: block", class: "form-label" %>
+    <%= form.text_field :vitri, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :thoigianhd, style: "display: block", class: "form-label" %>
+    <%= form.number_field :thoigianhd, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :soluong, style: "display: block", class: "form-label" %>
+    <%= form.number_field :soluong, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :nganhdaotao, style: "display: block", class: "form-label" %>
+    <%= form.text_field :nganhdaotao, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit "Create", class: "btn btn-info btn-new" %>
+  </div>
+<% end %>

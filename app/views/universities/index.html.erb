@@ -1,0 +1,62 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Universities</h1>
+
+<%= form_tag(universities_path, :method => "get", id: "search-form") do %>
+  <div class="d-flex justify-content-end align-items-center">
+    <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2", style: "width: 30%"  %>
+    <%= submit_tag "Search", class: "btn btn-info", style: "width: 10%; margin-left: 16px;" %>
+  </div>
+<% end %>
+
+<div id="universities">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Tên</th>
+        <th>Chuyên ngành</th>
+        <th>Vị trí</th>
+        <th>Thời gian HĐ</th>
+        <th>Số lượng sinh viên</th>
+        <th>Ngành đào tạo</th>
+        <th colspan="3" ></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @universities.each do |university| %>
+      <tr>
+        <td>
+          <%= link_to university.name, edit_university_path(university), class: "text-decoration-none" %>
+        </td>
+        
+         <td>
+          <%= link_to university.chuyennganh, edit_university_path(university), class: "text-decoration-none" %>
+        </td>
+
+         <td>
+          <%= link_to university.vitri, edit_university_path(university), class: "text-decoration-none" %>
+        </td>
+
+         <td>
+          <%= link_to university.thoigianhd, edit_university_path(university), class: "text-decoration-none" %>
+        </td>
+
+        <td>
+          <%= link_to university.soluong, edit_university_path(university), class: "text-decoration-none" %>
+        </td>
+
+        <td>
+          <%= link_to university.nganhdaotao, edit_university_path(university), class: "text-decoration-none" %>
+        </td>
+
+        <td><%= button_to "Destroy", university, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure ?"} %></td>
+        
+      </tr>
+      
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<%= link_to "New university", new_university_path, class: "btn btn-success" %>

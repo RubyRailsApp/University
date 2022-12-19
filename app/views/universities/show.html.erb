@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag "book"  %>
+
+<p style="color: green"><%= notice %></p>
+
+<%= render @university %>
+
+<div>
+  <%= link_to "Edit ", edit_university_path(@university), class: "btn btn-secondary btn-new" %> |
+  <%= link_to "Back", universities_path, class: "btn btn-info btn-new" %>
+
+  <%= button_to "Destroy ", @university, method: :delete, class: "btn btn-danger btn-new" %>
+</div>
